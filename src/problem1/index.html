@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>sum to n demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .controls {
+        margin-bottom: 20px;
+      }
+      .input {
+        width: 100px;
+        padding: 2px;
+        margin-right: 10px;
+      }
+      .button {
+        padding: 2px 10px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sum To N Demo</h1>
+    <div class="controls">
+      <input class="input" type="number" id="n-input" value="134217727" min="0" max="134217727" />
+      <button class="button" id="run-btn">Run</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Implementation</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>sum_to_n_a (Gauss Formula)</td>
+          <td id="result-a">-</td>
+        </tr>
+        <tr>
+          <td>sum_to_n_b (Iterative Loop)</td>
+          <td id="result-b">-</td>
+        </tr>
+        <tr>
+          <td>sum_to_n_c (Recursive)</td>
+          <td id="result-c">-</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script src="sum_to_n.js"></script>
+    <script>
+      const input = document.getElementById("n-input");
+      const outputs = {
+        a: document.getElementById("result-a"),
+        b: document.getElementById("result-b"),
+        c: document.getElementById("result-c"),
+      };
+
+      function run() {
+        const n = Number(input.value);
+        outputs.a.textContent = sum_to_n_a(n);
+        outputs.b.textContent = sum_to_n_b(n);
+        outputs.c.textContent = sum_to_n_c(n);
+      }
+      run()
+
+      document.getElementById("run-btn").addEventListener("click", run);
+    </script>
+  </body>
+</html>
